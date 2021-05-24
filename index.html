@@ -15,29 +15,50 @@
         background-repeat: no-repeat;
         background-size: cover;
       }
-        .card {
-            height: 460px;
-        }
-        .card:hover{
-            border: 1px solid;
-            padding: 10px;
-            box-shadow: 5px 5px #888888;
-            transition: 0.3s;
-            border-radius: 5%;
-        }
-        .card-body {
-            background-color: darkcyan;
+      .card {
+          height: 400px;
+      }
+      .card:hover{
+          border: 1px solid;
+          padding: 10px;
+          box-shadow: 5px 5px #888888;
+          transition: 0.3s;
+          border-radius: 5%;
+      }
+      .card-body {
+          background-color: darkcyan;
 
+      }
+      nav {
+        margin-bottom: 30px;
+      }
+      a {
+        text-decoration:none;
+        color: white;
+      }
+      .btn btn-primary{
+        width: 100px;
+        height: 40px;
+        border: none;
+        transition: 3s;
+      }
+      /* Untuk Tablet */
+      @media all and (max-width: 1000px) {
+        .card {
+          height: 410px;
         }
-        nav {
-          margin-bottom: 50px;
+      }
+      /* Untuk Smartphone */
+      @media all and (max-width: 670px) {
+        .card {
+          margin:0% 10%;
+          width:350px;
+          height: 400px;
         }
-        a {
-          text-decoration:none;
-          color: white;
-        }
+      }
     </style>
   </head>
+
   <body>
     <!-- Ini Header -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -45,6 +66,7 @@
       <span style="font-size: 15px; color: gold;">Make Your Future</span>
     </nav>
     <!-- Ini Akhir Header -->
+
     <!-- Ini Main -->
     <div class="container">
       <h1 class="text-center">Select For Study</h1>
@@ -52,31 +74,31 @@
         <div class="row row-cols-1 row-cols-md-3">
             <div class="col mb-4">
               <div class="card">
-                <img src="http://asset-a.grid.id/crop/0x0:0x0/x/photo/2018/05/11/3127307354.jpg" class="card-img-top" style="width: auto; height: 250px;">
+                <img src="http://asset-a.grid.id/crop/0x0:0x0/x/photo/2018/05/11/3127307354.jpg" class="card-img-top" style="width: auto; height: 220px;">
                 <div class="card-body">
                   <h5 class="card-title">Math</h5>
                   <p class="card-text">If you want to do Math click begin</p>
-                  <button class="btn btn-primary"><a href="soal.html" style="transition: 3s;">Begin</a></button>
+                  <button class="btn btn-primary"><a href="math.html">Begin</a></button>
                 </div>
               </div>
             </div>
             <div class="col mb-4">
               <div class="card">
-                <img src="https://iconape.com/wp-content/files/ya/99713/svg/science-colleges.svg" class="card-img-top" style="width: auto; height: 250px;">
+                <img src="https://iconape.com/wp-content/files/ya/99713/svg/science-colleges.svg" class="card-img-top" style="width: auto; height: 220px;">
                 <div class="card-body">
                   <h5 class="card-title">Scientce</h5>
                   <p class="card-text">If you want to do Scientce click begin</p>
-                  <button class="btn btn-primary">Begin</button>
+                  <button class="btn btn-primary"><a href="scientce.html">Begin</a></button>
                 </div>
               </div>
             </div>
           <div class="col mb-4">
               <div class="card">
-                <img src="https://i2.wp.com/saveasbrand.com/wp-content/uploads/2017/01/sejarah-logo-di-seluruh-dunia.jpg" class="card-img-top" style="width: auto; height: 250px;">
+                <img src="https://i2.wp.com/saveasbrand.com/wp-content/uploads/2017/01/sejarah-logo-di-seluruh-dunia.jpg" class="card-img-top" style="width: auto; height: 220px;">
                 <div class="card-body">
-                  <h5 class="card-title">Sejarah</h5>
-                  <p class="card-text">If you want to do Sejarah click begin</p>
-                  <button class="btn btn-primary">Begin</button>
+                  <h5 class="card-title">Historical</h5>
+                  <p class="card-text">If you want to do Historical click begin</p>
+                  <button class="btn btn-primary"><a href="historical.html">Begin</a></button>
                 </div>
               </div>
             </div>
@@ -84,10 +106,10 @@
     </div>
     <!-- Ini Akhir Main -->
     <!-- Ini Footer -->
-   <footer>
+   <footer style="padding: 0px;">
       <!-- Copyright -->
-      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        <span style="font-size: 15px; color: black; font-weight: bold;">&copy; | Fikri Llilik Fathony </span>
+      <div class="text-center p-4" style="background-color: #bbbbbb;">
+        <span style="font-size: 15px; color: black; font-weight: bold;">Copyright &copy; 2021 | All Reserved By Fikri Lilik Fathony </span>
 
       </div>
       <!-- Copyright -->
