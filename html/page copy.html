@@ -35,12 +35,16 @@
             </div>
             <img id="jempol" src="../img/jempol2.gif" alt="Gambar Tangan" style="padding-top:-5px;" width="195px">
             <div id="jumlah"></div>
-            <a href="index.html" class="btn btn-secondary" role="button" style="border-radius: 10px;">Start Menu</a>
+            <a href="../index.html" class="btn btn-secondary" role="button" style="border-radius: 10px;">Start Menu</a>
         </div>
     </div>
 
     <!-- kotak slide show -->
       <div class="container">
+          <div class="loader-wrapper">
+            <h1 style="color: white;">Loading </h1>
+            <span class="loader" style="margin-left: 10px;"><span class="loader-inner"></span></span>
+        </div>
           <div id="demo" class="carousel slide" data-interval="false" data-ride="carousel" data-wrap="false" >
             <!-- The slideshow -->
             <div class="carousel-inner">
@@ -91,10 +95,14 @@
       
 <!-- script -->
 <script>
+// loading
+// $(window).on("load",function(){
+//      $(".loader-wrapper").fadeOut("slow");
+// });
 //timer
 $(document).ready(function(){
   document.getElementById('timer').innerHTML =
-  00 + ":" + 20;
+  20 + ":" + 00;
   startTimer();
   function startTimer() {
     var presentTime = document.getElementById('timer').innerHTML;
@@ -123,11 +131,14 @@ $(document).ready(function(){
 //parallax
 var swipe = document.querySelector('#swipe');
 $(window).on('load',function(){
-    $('.span').addClass('muncul');
-    $('.study').addClass('muncul');
-    $('.carousel-inner').addClass('muncul');
-    $('.carousel-control-next').addClass('muncul');
-    $('.carousel-control-prev').addClass('muncul');
+    setTimeout(function(){
+      $(".loader-wrapper").fadeToggle();
+      $('.span').addClass('muncul');
+      $('.study').addClass('muncul');
+      $('.carousel-inner').addClass('muncul');
+      $('.carousel-control-next').addClass('muncul');
+      $('.carousel-control-prev').addClass('muncul');
+    },1500);
 });
 function lala(){
       swipe.play();
@@ -203,16 +214,16 @@ const track = [];
 var i = 0;
 var maxQues = "10";
 var rand = Math.floor(Math.random() * maxQues);
-var str=  '<h4>Answer The Questions</h4>';
-var str1= '<h4>Answer The Questions</h4>';
-var str2= '<h4>Answer The Questions</h4>';
-var str3= '<h4>Answer The Questions</h4>';
-var str4= '<h4>Answer The Questions</h4>';
-var str5= '<h4>Answer The Questions</h4>';
-var str6= '<h4>Answer The Questions</h4>';
-var str7= '<h4>Answer The Questions</h4>';
-var str8= '<h4>Answer The Questions</h4>';
-var str9= '<h4>Answer The Questions</h4>';
+var str=  '';
+var str1= '';
+var str2= '';
+var str3= '';
+var str4= '';
+var str5= '';
+var str6= '';
+var str7= '';
+var str8= '';
+var str9= '';
 
 // pertanyaan random
 while(i < maxQues){
@@ -221,108 +232,128 @@ while(i < maxQues){
     //pass
   }else{
     if(i==0){
-      str+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-      str+='<form>'+
-        '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-        '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-        '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-        '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+      str+="<h4>Number "+(i+1)+'</h4><br>';
+      str+='<p>'+quizObj[rand].question+'</p><br>';
+      str+='<form class="row">'+
+        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+        '<label class="w-100"></label>'+
+        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
         '</form><br>';
         track[i]=rand;
       }else if(i==1){
-        str1+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-        str1+='<form>'+
-          '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-          '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-          '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-          '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+        str1+="<h4>Number "+(i+1)+'</h4><br>';
+        str1+='<p>'+quizObj[rand].question+'</p><br>';
+        str1+='<form class="row">'+
+          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+          '<label class="w-100"></label>'+
+          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
           '</form><br>';
           
           track[i]=rand;
         }else if(i==2){
           
-          str2+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-          str2+='<form>'+
-            '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-            '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-            '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-            '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+          str2+="<h4>Number "+(i+1)+'</h4><br>';
+          str2+='<p>'+quizObj[rand].question+'</p><br>';
+          str2+='<form class="row">'+
+            '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+            '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+            '<label class="w-100"></label>'+
+            '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+            '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
             '</form><br>';
             
             track[i]=rand;
           }else if(i==3){
             
-            str3+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-            str3+='<form>'+
-              '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-              '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-              '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-              '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+            str3+="<h4>Number "+(i+1)+'</h4><br>';
+            str3+='<p>'+quizObj[rand].question+'</p><br>';
+            str3+='<form class="row">'+
+              '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+              '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+              '<label class="w-100"></label>'+
+              '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+              '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
               '</form><br>';
               
               track[i]=rand;
             }else if(i==4){
               
-              str4+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-              str4+='<form>'+
-                '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-                '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-                '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-                '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+              str4+="<h4>Number "+(i+1)+'</h4><br>';
+              str4+='<p>'+quizObj[rand].question+'</p><br>';
+              str4+='<form class="row">'+
+                '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                '<label class="w-100"></label>'+
+                '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
                 '</form><br>';
                 
                 track[i]=rand;
               }else if(i==5){
                 
-                str5+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-                str5+='<form>'+
-                  '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-                  '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-                  '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-                  '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+                str5+="<h4>Number "+(i+1)+'</h4><br>';
+                str5+='<p>'+quizObj[rand].question+'</p><br>';
+                str5+='<form class="row">'+
+                  '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                  '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                  '<label class="w-100"></label>'+
+                  '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                  '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
                   '</form><br>';
                   
                   track[i]=rand;
                 }else if(i==6){
                   
-                  str6+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-                  str6+='<form>'+
-                    '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-                    '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-                    '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-                    '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+                  str6+="<h4>Number "+(i+1)+'</h4><br>';
+                  str6+='<p>'+quizObj[rand].question+'</p><br>';
+                  str6+='<form class="row">'+
+                    '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                    '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                    '<label class="w-100"></label>'+
+                    '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                    '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
                     '</form><br>';
                     
                     track[i]=rand;
                   }else if(i==7){
                     
-                    str7+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-                    str7+='<form>'+
-                      '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-                      '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-                      '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-                      '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+                    str7+="<h4>Number "+(i+1)+'</h4><br>';
+                    str7+='<p>'+quizObj[rand].question+'</p><br>';
+                    str7+='<form class="row">'+
+                      '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                      '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                      '<label class="w-100"></label>'+
+                      '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                      '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
                       '</form><br>';
                       
                       track[i]=rand;
                     }else if(i==8){
                       
-                      str8+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-                      str8+='<form>'+
-                        '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-                        '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-                        '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-                        '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+                      str8+="<h4>Number "+(i+1)+'</h4><br>';
+                      str8+='<p>'+quizObj[rand].question+'</p><br>';
+                      str8+='<form class="row">'+
+                        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                        '<label class="w-100"></label>'+
+                        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
                         '</form><br>';
                         track[i]=rand;
                       }else if(i==9){
                         
-                        str9+=(i+1)+'.  '+quizObj[rand].question+'<br>';
-                        str9+='<form>'+
-                          '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+
-                          '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+
-                          '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+
-                          '<input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+
+                        str9+="<h4>Number "+(i+1)+'</h4><br>';
+                        str9+='<p>'+quizObj[rand].question+'</p><br>';
+                        str9+='<form class="row">'+
+                          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                          '<label class="w-100"></label>'+
+                          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
                           '</form><br>' +'<button type="submit" onclick="myFunction()" id="submit" class="btn btn-primary">Submit</button>';
                           track[i]=rand;
     }
