@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Quiz Online</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../mystyle.css">
+  <link rel="shortcut icon" href="../img/puzzle.png">
+</head>
+<body oncontextmenu="return false" onkeydown="return false" onmousedown="return false">
+      <!-- Audi backsound -->
+      <audio src="../audio/sound.mp3" id="sound" autoplay loop='true'></audio>
+      <audio src="../audio/swipe.mp3" id="swipe"></audio>
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <a class="navbar-brand" href="#" style="font-size: 30px;"><img src="../img/logo.png" width="50px" height="50px" alt="Logo Quiz">Quiz Online |</a>
+          <span class="span" style="font-size: 15px; color: gold;">Make Your Future</span>
+          <span class="timer col-auto" id="timer" style="font-size: 30px; color: white; background-color: red;">00.00</span>
+      </nav> 
+      <!-- Judul -->
+      <h1 class="study font-weight-bold text-center" style="padding-top:20px ;" >SCIENCE SOCIAL</h1>
+      <!-- score-->
+      <div id="container" style="display: none;">
+        <div id="kotak">
+            <h1 style="padding-top: 30px ;">Your Score</h1>
+            <div id="jumlah1">
+                <span id="benar">Benar</span> <div id="score">1</div> <br>
+            </div>
+            <div id="jumlah2">
+                <span id="salah">Salah</span> <div id="score1">1</div> <br>
+            </div>
+            <img id="jempol" src="../img/jempol2.gif" alt="Gambar Tangan" style="padding-top:-5px;" width="195px">
+            <div id="jumlah"></div>
+            <a href="../index.html" class="btn btn-secondary" role="button" style="border-radius: 10px;">Start Menu</a>
+        </div>
+    </div>
+
+    <!-- kotak slide show -->
+      <div class="container">
+          <div class="loader-wrapper">
+            <h1 style="color: white;">Loading </h1>
+            <span class="loader" style="margin-left: 10px;"><span class="loader-inner"></span></span>
+        </div>
+          <div id="demo" class="carousel slide" data-interval="false" data-ride="carousel" data-wrap="false" >
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div id="tanya"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya1"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya2"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya3"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya4"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya5"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya6"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya7"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya8"></div>
+              </div>
+              <div class="carousel-item">
+                <div id="tanya9"></div>
+              </div>
+            </div>
+            <!-- Left and right controls -->
+            
+              <a onclick="lala()" class="carousel-control-prev" id="tKiri" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>Previous
+              </a>
+              
+              <a onclick="lala()" class="carousel-control-next" id="tKanan" href="#demo" data-slide="next">
+                Next<span  class="carousel-control-next-icon"></span>
+              </a>
+          </div>
+
+      </div>
+      
+      
+<!-- script -->
+<script>
+// loading
+// $(window).on("load",function(){
+//      $(".loader-wrapper").fadeOut("slow");
+// });
+//timer
+$(document).ready(function(){
+  document.getElementById('timer').innerHTML =
+  20 + ":" + 00;
+  startTimer();
+  function startTimer() {
+    var presentTime = document.getElementById('timer').innerHTML;
+    var timeArray = presentTime.split(/[:]+/);
+    var m = timeArray[0];
+    var s = checkSecond((timeArray[1] - 1),m);
+    if(s==59){m=m-1}
+    //if(m<0){alert('timer completed')}
+    document.getElementById('timer').innerHTML =
+      m + ":" + s;
+    setTimeout(startTimer, 1000);
+  }
+
+  function checkSecond(sec,men) {
+    if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+    if (sec < 0) {sec = "59"};
+    if (sec ==0 && men==0){
+      document.getElementById('container').style.display = 'block';
+      document.getElementsByClassName('container')[0].style.display = 'none';
+      scoreMe();
+      $(".timer#timer").hide();
+    }
+    return sec;
+  }
+});
+//parallax
+var swipe = document.querySelector('#swipe');
+$(window).on('load',function(){
+    setTimeout(function(){
+      $(".loader-wrapper").fadeToggle();
+      $('.span').addClass('muncul');
+      $('.study').addClass('muncul');
+      $('.carousel-inner').addClass('muncul');
+      $('.carousel-control-next').addClass('muncul');
+      $('.carousel-control-prev').addClass('muncul');
+    },1500);
+});
+function lala(){
+      swipe.play();
+}
+//menampilkan scoreee
+function myFunction(){
+  var ceek = confirm("Anda yakin ingin mengumpulkan?")
+  if(ceek==true){
+    document.getElementById('container').style.display = 'block';
+    document.getElementsByClassName('container')[0].style.display = 'none';
+    scoreMe();
+  }
+}
+
+//pertanyaan berada di list
+let quizObj = [
+{ 
+      "question": "What is the capital of Bangladesh?",
+      "choice": ["Dhaka", "Chittagong", "Sylhet","1"],
+      "correct": ["Dhaka"]
+},
+{ 
+      "question": "What does 2+2 equal to?",
+      "choice": ["3", "2", "4","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["4"]
+},
+  { 
+      "question": "What is the real name of Damon Salvatore?",
+      "choice": ["Paul Wesley", "Steven McQueen", "Ian Somerhalder","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["Ian Somerhalder"]
+},
+  { 
+      "question": "What is the name of the largest planet in the universe?",
+      "choice": ["Earth", "Jupiter", "Uranus","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["Jupiter"]
+},
+  { 
+      "question": "What is the capital of New York?",
+      "choice": ["Manhattan", "NYC", "Albany","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["Albany"]
+},
+  { 
+      "question": "How many bones does the human body have?",
+      "choice": ["109", "206", "114","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["206"]
+},
+  { 
+      "question": "What is the alter ego of Batman?",
+      "choice": ["Bruce Banner", "Bruce Wayne", "Tony Stark","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["Bruce Wayne"]
+},
+  { 
+      "question": "How many books are there in the Harry Potter series?",
+      "choice": ["7", "5", "8","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["7"]
+},
+  { 
+      "question": "What is Naruto's surname?",
+      "choice": ["Sarutobi", "Uchiha", "Uzumaki","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["Uzumaki"]
+},
+  { 
+      "question": "What is the name of Sherlock Holmes' partner?",
+      "choice": ["Peterson", "Watson", "Hanson","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["Watson"]
+},
+
+];
+
+
+//memulai pertanyaan
+const track = [];
+var i = 0;
+var maxQues = "10";
+var rand = Math.floor(Math.random() * maxQues);
+var str=  '';
+var str1= '';
+var str2= '';
+var str3= '';
+var str4= '';
+var str5= '';
+var str6= '';
+var str7= '';
+var str8= '';
+var str9= '';
+
+// pertanyaan random
+while(i < maxQues){
+  var rand = Math.floor(Math.random() * maxQues);
+  if (track.includes(rand)===true){
+    //pass
+  }else{
+    if(i==0){
+      str+="<h4>Number "+(i+1)+'</h4><br>';
+      str+='<p>'+quizObj[rand].question+'</p><br>';
+      str+='<form class="row">'+
+        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+        '<label class="w-100"></label>'+
+        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+        '</form><br>';
+        track[i]=rand;
+      }else if(i==1){
+        str1+="<h4>Number "+(i+1)+'</h4><br>';
+        str1+='<p>'+quizObj[rand].question+'</p><br>';
+        str1+='<form class="row">'+
+          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+          '<label class="w-100"></label>'+
+          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+          '</form><br>';
+          
+          track[i]=rand;
+        }else if(i==2){
+          
+          str2+="<h4>Number "+(i+1)+'</h4><br>';
+          str2+='<p>'+quizObj[rand].question+'</p><br>';
+          str2+='<form class="row">'+
+            '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+            '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+            '<label class="w-100"></label>'+
+            '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+            '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+            '</form><br>';
+            
+            track[i]=rand;
+          }else if(i==3){
+            
+            str3+="<h4>Number "+(i+1)+'</h4><br>';
+            str3+='<p>'+quizObj[rand].question+'</p><br>';
+            str3+='<form class="row">'+
+              '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+              '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+              '<label class="w-100"></label>'+
+              '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+              '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+              '</form><br>';
+              
+              track[i]=rand;
+            }else if(i==4){
+              
+              str4+="<h4>Number "+(i+1)+'</h4><br>';
+              str4+='<p>'+quizObj[rand].question+'</p><br>';
+              str4+='<form class="row">'+
+                '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                '<label class="w-100"></label>'+
+                '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+                '</form><br>';
+                
+                track[i]=rand;
+              }else if(i==5){
+                
+                str5+="<h4>Number "+(i+1)+'</h4><br>';
+                str5+='<p>'+quizObj[rand].question+'</p><br>';
+                str5+='<form class="row">'+
+                  '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                  '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                  '<label class="w-100"></label>'+
+                  '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                  '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+                  '</form><br>';
+                  
+                  track[i]=rand;
+                }else if(i==6){
+                  
+                  str6+="<h4>Number "+(i+1)+'</h4><br>';
+                  str6+='<p>'+quizObj[rand].question+'</p><br>';
+                  str6+='<form class="row">'+
+                    '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                    '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                    '<label class="w-100"></label>'+
+                    '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                    '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+                    '</form><br>';
+                    
+                    track[i]=rand;
+                  }else if(i==7){
+                    
+                    str7+="<h4>Number "+(i+1)+'</h4><br>';
+                    str7+='<p>'+quizObj[rand].question+'</p><br>';
+                    str7+='<form class="row">'+
+                      '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                      '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                      '<label class="w-100"></label>'+
+                      '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                      '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+                      '</form><br>';
+                      
+                      track[i]=rand;
+                    }else if(i==8){
+                      
+                      str8+="<h4>Number "+(i+1)+'</h4><br>';
+                      str8+='<p>'+quizObj[rand].question+'</p><br>';
+                      str8+='<form class="row">'+
+                        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                        '<label class="w-100"></label>'+
+                        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                        '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+                        '</form><br>';
+                        track[i]=rand;
+                      }else if(i==9){
+                        
+                        str9+="<h4>Number "+(i+1)+'</h4><br>';
+                        str9+='<p>'+quizObj[rand].question+'</p><br>';
+                        str9+='<form class="row">'+
+                          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[0]+'"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[0] +"</label>"+
+                          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[1]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+"</label>"+
+                          '<label class="w-100"></label>'+
+                          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[2]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+"</label>"+
+                          '<label class="col btn btn-primary"><input type="radio" name="pilih'+rand+'" value="'+quizObj[rand].choice[3]+'" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[3]+"</label>"+
+                          '</form><br>' +'<button type="submit" onclick="myFunction()" id="submit" class="btn btn-primary">Submit</button>';
+                          track[i]=rand;
+    }
+    i++;
+    
+  }
+}
+  document.getElementById('tanya').innerHTML = str;
+  document.getElementById('tanya1').innerHTML = str1;
+  document.getElementById('tanya2').innerHTML = str2;
+  document.getElementById('tanya3').innerHTML = str3;
+  document.getElementById('tanya4').innerHTML = str4;
+  document.getElementById('tanya5').innerHTML = str5;
+  document.getElementById('tanya6').innerHTML = str6;
+  document.getElementById('tanya7').innerHTML = str7;
+  document.getElementById('tanya8').innerHTML = str8;
+  document.getElementById('tanya9').innerHTML = str9;
+//akhir pertanyaan random
+
+//fungsi untuk mengelolah score
+function scoreMe(){
+  var sum=0;
+  for(var j=0;j<maxQues;j++){
+
+      var cek = $("input:radio[name=pilih"+track[j]+"]:checked").val()
+      if(cek == quizObj[track[j]].correct[0]){
+        sum++;
+      }
+  }
+  document.getElementById('score').innerHTML ="<span>" +sum+"</span>";
+  document.getElementById('score1').innerHTML ="<span>"+ (maxQues - sum)+"</span>";
+  document.getElementById('jumlah').innerHTML ="<h1>"+ (sum*10)+'</h1>';
+}
+//akhir 
+</script>
+</body>
+</html>
