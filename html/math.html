@@ -95,7 +95,10 @@
       
 <!-- script -->
 <script>
-
+// loading
+// $(window).on("load",function(){
+//      $(".loader-wrapper").fadeOut("slow");
+// });
 //timer
 $(document).ready(function(){
   document.getElementById('timer').innerHTML =
@@ -153,54 +156,54 @@ function myFunction(){
 //pertanyaan berada di list
 let quizObj = [
 { 
-      "question": "What is the capital of Bangladesh?",
-      "choice": ["Dhaka", "Chittagong", "Sylhet","1"],
-      "correct": ["Dhaka"]
+      "question": "Terdapat nilai A = {5,6,7} sedangkan nilai B = {3, 4}, jadi nilai dari A ∪ B yaitu?",
+      "choice": ["{3}", "{3, 4, 5, 6, 7}", "{1, 3}","{2, 4}"],
+      "correct": ["{3, 4, 5, 6, 7}"]
 },
 { 
-      "question": "What does 2+2 equal to?",
-      "choice": ["3", "2", "4","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["4"]
+      "question": "nilai n (A) = 10, nilai n (B) = 8 ada n (A ∩ B) = 8, maka nilai n atas (A ∪ B) ialah?",
+      "choice": ["8", "9", "10","11"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["10"]
 },
   { 
-      "question": "What is the real name of Damon Salvatore?",
-      "choice": ["Paul Wesley", "Steven McQueen", "Ian Somerhalder","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["Ian Somerhalder"]
+      "question": "Diketahui nilai C = {bilangan asli <10} sedangkan nilai A = {2, 4, 6, 8}. Maka nilai dari AC adalah?",
+      "choice": ["{1, 2, 3, …., 9}", "{{0, 1, 3, 5, 7, 9}}", "{ {2, 4, 6, 8}}","{1, 3, 5, 7, 9}"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["{1, 3, 5, 7, 9}"]
 },
   { 
-      "question": "What is the name of the largest planet in the universe?",
-      "choice": ["Earth", "Jupiter", "Uranus","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["Jupiter"]
+      "question": "Di dalam kelas terdapat 30 siswa. 15 siswa yang diantaranya gemar melukis, 20 siswa lagi siswa gemar menyanyi dan siswa suka keduanya adalah 8. Lalu, jumlah dari siswa yang tidak suka keduanya adalah",
+      "choice": ["3", "4", "5","6"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["3"]
 },
   { 
-      "question": "What is the capital of New York?",
-      "choice": ["Manhattan", "NYC", "Albany","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["Albany"]
+      "question": "Jika diketahui : {x | -1 ≤ x <3; x angka yang asli}. Maka dari seluruh x integer adalah?",
+      "choice": [" {-1, 0, 1, 2, 3}", "{0, 1, 2, 3}", "{-1, 0, 1, 2}","{1, 2}"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["{1, 2}"]
 },
   { 
-      "question": "How many bones does the human body have?",
-      "choice": ["109", "206", "114","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["206"]
+      "question": "Diketahui barisan aritmetika dengan U4= 20 dan U8= 44. Suku ke-40 baris itu adalah…?",
+      "choice": ["106", "236", "246","275"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["236"]
 },
   { 
-      "question": "What is the alter ego of Batman?",
-      "choice": ["Bruce Banner", "Bruce Wayne", "Tony Stark","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["Bruce Wayne"]
+      "question": "Sebuah ban mobil memiliki panjang jari-jari 35 cm. Ketika mobil tersebut berjalan, ban mobil tersebut berputar sebanyak 100 kali. Tentukan luas ban mobil tersebut!?",
+      "choice": ["220 cm²", "3.850 cm²", " 2.220 cm²","38.500 cm²"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["3.850 cm²"]
 },
   { 
-      "question": "How many books are there in the Harry Potter series?",
-      "choice": ["7", "5", "8","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["7"]
+      "question": "Sebuah foto berbentuk persegi panjang diletakan di atas selembar karton berukuran 20 cm x 40 cm. Di sebelah kiri, kanan dan atas terdapat sisa karton masing-masing 5 cm. Jika foto dan karton tersebut sebangun, maka lebar sisa karton di bawah foto itu  adalah?",
+      "choice": ["5", "10", "20","30"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["20"]
 },
   { 
-      "question": "What is Naruto's surname?",
-      "choice": ["Sarutobi", "Uchiha", "Uzumaki","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["Uzumaki"]
+      "question": "Berat rata-rata dari 12 siswa adalah 55 kg dan berat rata-rata 15 orang lainya adalah 45 Berat rata-rata dari keseluruhan kedua kelompok tersebut adalah?",
+      "choice": ["50 kg", "49 kg", "48 kg","47 kg"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["49"]
 },
   { 
-      "question": "What is the name of Sherlock Holmes' partner?",
-      "choice": ["Peterson", "Watson", "Hanson","1"],  //quizObj[2].choice[0],quizObj[2].choice[1]
-      "correct": ["Watson"]
+      "question": "Dalam percobaan melempar sebuah dadu, peluang muncul mata dadu faktor dari 6?",
+      "choice": ["1/3", "1/2", "2/3","3/2"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+      "correct": ["2/3"]
 },
 
 ];
