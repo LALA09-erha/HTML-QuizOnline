@@ -82,7 +82,7 @@
 div button#submit.btn{
   position: relative;
   margin: 0 50px;
-  margin-top: -100px;
+  margin-top: -50px;
 }
 div a.carousel-control-prev{
   right: 90;
@@ -130,7 +130,8 @@ p{
 }
 /* wadah label/ inputan */
 form {
-  padding: 50px;
+  padding-bottom:10px;
+  padding:0 50px;
 }
 /* label */
 label{
